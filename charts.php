@@ -1,3 +1,10 @@
+<?php
+
+include("conexion.php");
+
+
+// $row=mysqli_fetch_array($query);          
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,13 +64,13 @@
 
               <!-- Nav Item - Charts -->
               <li class="nav-item active">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="charts.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Registrar</span></a>
             </li>
              <!-- Nav Item - Empleados -->
              <li class="nav-item">
-                <a class="nav-link" href="empleados.html">
+                <a class="nav-link" href="empleados.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Empleados</span></a>
             </li>
@@ -190,7 +197,7 @@
             
 
                                 <h5>Cargo</h5>
-                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required name="categoria">
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required name="cargo">
   
                                 <option value="Asesor">Asesor</option>
                                 <option value="Gerente">Gerente</option>
@@ -207,27 +214,7 @@
 
                         </div>
 
-                        <div class="col-md-10">
-                            <table class="table">
-                                <thead class="table-success table-striped">
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>NOMBRE(S)</th>
-                                        <th>APELLIDO PATERNO</th>
-                                        <th>APELLIDO MATERNO</th>
-                                        <th>CARGO</th>
-                                        <!-- <th>IMAGEN</th> -->
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    
-
-                                </tbody>
-                            </table>
-                        </div>
+                        
                         </div>
 
 
@@ -238,7 +225,6 @@
 
             </div>
 
- 
                 <!-- /.container-fluid -->
 
             </div>

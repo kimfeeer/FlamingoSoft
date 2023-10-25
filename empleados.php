@@ -1,3 +1,10 @@
+<?php
+
+include("conexion.php");
+
+
+// $row=mysqli_fetch_array($query);          
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +49,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-home"></i>
                     <span>Inicio</span></a>
@@ -63,8 +70,8 @@
                     <span>Registrar</span></a>
             </li>
              <!-- Nav Item - Empleados -->
-             <li class="nav-item">
-                <a class="nav-link" href="empleados.php">
+             <li class="nav-item active">
+                <a class="nav-link" href="empleados.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Empleados</span></a>
             </li>
@@ -176,41 +183,74 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">¡Bievenido!</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Empleados</h1>
                        
                     </div>
 
-                    
-
-                       
-                       
-
-                       
+                    <div class="col-md-10">
+                        <table class="table">
+                            <thead class="table-success table-striped">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NOMBRE(S)</th>
+                                    <th>APELLIDO PATERNO</th>
+                                    <th>APELLIDO MATERNO</th>
+                                    <th>CARGO</th>
+                                    <!-- <th>IMAGEN</th> -->
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
                                 
-                               
+                                        $content = 1; 
+                                        $sql="SELECT * FROM empleados";
+                                        $query=mysqli_query($conexion,$sql);
 
-                   
+                                    while($row=mysqli_fetch_assoc($query)){
+                                    ?>
+                                        <tr>
+                                            <th><?php echo $content?></th>
+                                            <th><?php echo $row['nombre']?></th>
+                                            <th><?php echo $row['apellidopaterno']?></th>
+                                            <th><?php echo $row['apellidomaterno']?></th>
+                                            <th><?php echo $row['cargo']?></th>
+                                            <td>
 
-                           
+                                        <!-- <img width="100" src="<?php echo $row['img']?>"> -->
 
-                           
+                                        </td>
+                                            <th><a href="actualizar.php?id=<?php echo $row['id']?>" class="btn btn-info">Editar</a></th>
+                                            <th><a href="delete.php?id=<?php echo $row['id']?>" class="btn btn-danger" name="eliminar" value="eliminar">Eliminar</a></th>
+                                        
+                                        </tr>
 
-                          
 
-                       
+                                        <?php
+                                        $content++;
+                                    }
+
+                                    ?>
+
+                            </tbody>
+                        </table>
+                    </div>
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+
+            <!-- <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; FlamingoSoft 2023</span>
                     </div>
                 </div>
-            </footer>
+            </footer> -->
+
             <!-- End of Footer -->
 
         </div>
